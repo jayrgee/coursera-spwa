@@ -15,8 +15,7 @@ function ToBuyController (ShoppingListCheckOffService) {
 
   itemsToBuy.checkOffItem = function (itemIndex) {
     ShoppingListCheckOffService.checkOffItem(itemIndex);
-  }
-
+  };
 }
 
 AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
@@ -53,4 +52,4 @@ function ShoppingListCheckOffService () {
   };
 }
 
-})();
+} ());
