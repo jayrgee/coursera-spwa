@@ -32,6 +32,7 @@ function NarrowItDownController (MenuSearchService) {
   search.found = [];
 
   search.filterList = filterList;
+  search.removeItem = removeItem;
 
   filterList();
 
@@ -44,9 +45,11 @@ function NarrowItDownController (MenuSearchService) {
     .catch(function (error) {
       console.log('Something went terribly wrong.');
     });
-
   }
 
+  function removeItem (itemIndex) {
+    search.found.splice(itemIndex, 1);
+  }
 }
 
 

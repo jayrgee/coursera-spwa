@@ -26,7 +26,9 @@
     <br>
 
     <!-- found-items should be implemented as a component -->
-    <found-items found-items="search.found" on-remove=""></found-items>
+    <found-items
+     found-items="search.found"
+     on-remove="search.removeItem(index)"></found-items>
   </div>
 
   <script src="angular.min.js"></script>
