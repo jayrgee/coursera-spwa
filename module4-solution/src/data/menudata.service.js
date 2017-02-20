@@ -1,7 +1,8 @@
 (function() {
   'use strict';
-
-  angular.module('MenuApp')
+  // Create menudata.service.js file and create a service called MenuDataService in it.
+  // This service should be declared on the data module, not on the MenuApp module.
+  angular.module('data')
   .service('MenuDataService', MenuDataService);
 
   MenuDataService.$inject = ['$http', 'ApiBasePath'];
@@ -15,12 +16,11 @@
 //   using the $http service, using the following REST API endpoint:
 //   https://davids-restaurant.herokuapp.com/categories.json
     service.getAllCategories = function() {
-      return $http({
+      var response = $http({
         method: 'GET',
         url: (ApiBasePath + '/categories.json')
-      }).then(function (result) {
-        return result;
       });
+      return response;
     }
 
 // getItemsForCategory(categoryShortName)
@@ -30,6 +30,16 @@
 //   , where, before the call to the server, your code should append whatever
 //   categoryShortName value was passed in as an argument into the
 //   getItemsForCategory method.
+    service.getItemsForCategory = function (categoryShortName) {
+      var response = $http({
+        method: "GET",
+        url: (ApiBasePath + "/menu_items.json"),
+        params: {
+          category: categoryShortName
+        }
+      });
+      return response;
+    };
 
   }
 
