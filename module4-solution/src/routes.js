@@ -17,6 +17,18 @@
     .state('home', {
       url: '/',
       templateUrl: 'src/menuapp/templates/home.template.html'
+    })
+
+    // Premade list page
+    .state('categories', {
+      url: '/categories',
+      templateUrl: 'src/menuapp/templates/categories.template.html',
+      controller: 'CategoriesController as mainList',
+      resolve: {
+        items: ['MenuDataService', function (MenuDataService) {
+          return MenuDataService.getAllCategories();
+        }]
+      }
     });
   }
 
