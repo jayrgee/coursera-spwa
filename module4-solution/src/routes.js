@@ -21,9 +21,9 @@
 
     // Premade list page
     .state('categories', {
-      url: '/categories',
-      templateUrl: 'src/menuapp/templates/categories.template.html',
-      controller: 'CategoriesController as mainList',
+      url: '/main-categories',
+      templateUrl: 'src/menuapp/templates/main-categories.template.html',
+      controller: 'MainCategoriesController as mainList',
       resolve: {
         items: ['MenuDataService', function (MenuDataService) {
           return MenuDataService.getAllCategories();
