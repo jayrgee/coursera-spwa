@@ -16,11 +16,16 @@
 //   using the $http service, using the following REST API endpoint:
 //   https://davids-restaurant.herokuapp.com/categories.json
     service.getAllCategories = function() {
-      var response = $http({
+      return $http({
         method: 'GET',
         url: (ApiBasePath + '/categories.json')
+      }).then(function (response) {
+        return response.data;
       });
-      return response;
+      // return $http.get(ApiBasePath + '/categories.json')
+      // .then(function (response) {
+      //   return response.data;
+      // });
     }
 
 // getItemsForCategory(categoryShortName)
@@ -31,16 +36,16 @@
 //   categoryShortName value was passed in as an argument into the
 //   getItemsForCategory method.
     service.getItemsForCategory = function (categoryShortName) {
-      var response = $http({
+      return $http({
         method: "GET",
         url: (ApiBasePath + "/menu_items.json"),
         params: {
           category: categoryShortName
         }
+      }).then(function (response) {
+        return response.data;
       });
-      return response;
     };
-
   }
 
 }());

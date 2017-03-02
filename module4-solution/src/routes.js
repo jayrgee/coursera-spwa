@@ -29,6 +29,18 @@
           return MenuDataService.getAllCategories();
         }]
       }
+    // })
+    //
+    // .state('items', {
+    //   url: '',
+    //   templateUrl '',
+    //   controller: '',
+    //   resolve: {
+    //     items: ['$stateParams', 'MenuDataService',
+    //         function ($stateParams, MenuDataService) {
+    //           return ShoppingListService.getItemsForCategory($stateParams.categoryShortName);
+    //         }]}
+    //   }
     });
   }
 
